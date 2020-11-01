@@ -26,6 +26,8 @@
 
      ​		ConcurrentHashMap
 
+     ​				sync + cas
+
 2. **线程池**
 
    - ThreadPoolExecutor、Cache、Fix、Single、Scheduled
@@ -444,12 +446,20 @@ Nginx 的四个主要组成部分
 
 1. 秒杀系统
    - 前端物理限流(按钮置灰)
+   
    - url动态化(防止机器人)
+   
    - 资源静态化
+   
    - 后端限流，卖完直接return false
+   
    - 缓存库存，用redis，lua保证原子性
+   
    - 消息队列下单
+   
    - 入库sql校验库存
+   
+     
 
 2. 接口幂等性
 
@@ -478,3 +488,27 @@ Nginx 的四个主要组成部分
    - redis 唯一序列号作为key
 
    - 状态机  根据状态流转信息处理
+
+     
+
+3. OOM排查
+
+   XX:+HeapDumpOnOutOfMemoryError 开启堆日志自动打印，出错时可直接查看
+
+   - 一般都是堆内存不够
+   - ps -ef | grep java 找出java的进程id
+   - jmap 找到占用内存最大的对象
+
+   栈溢出。递归条件控制不好
+
+   
+
+4. CPU使用率过高
+
+   ps 拿到pid
+
+   top -Hp pid 显示出所有线程
+
+   jsatck 打印栈日志
+
+   jnap 打印堆日志
