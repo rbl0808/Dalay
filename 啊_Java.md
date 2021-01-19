@@ -41,6 +41,7 @@
      - DelayQueue 延时队列  底层 PriorityQueue 默认只保证队头元素是最小
      - PriorityBlockingQueue  PriorityQueue的线程安全版本
      - SynchronousQueue  同步队列。读写线程同步 一个写等读完才能返回执行下一步
+   - ![线程六种状态](https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=864033490,265714409&fm=173&s=89A05D321B0A41491CDCCDCA0200A0B3&w=640&h=350&img.JPEG)
 
 3. **锁**
 
