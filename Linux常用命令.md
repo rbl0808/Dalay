@@ -58,17 +58,68 @@ clear/command + l:清除终端中已经存在的命令和结果
 ### redis常用命令:
 
 1.安装命令
+
+````
 brew install redis
+````
+
 2.启动Redis命令
+
+````java
 redis-server /usr/local/etc/redis.conf
+````
+
 3.停止redis server服务
+
+````java
 redis-cli shutdown
+````
+
 4.退出redis server服务
+
+````java
 Ctrl+c
+````
+
 5.测试redis server是否启动
+
+````java
 $ redis-cli ping 返回pong代表已经启动
+````
+
 6.启动redis客户端
+
+````java
 redis-cli 该命令会连接本地的Redis服务
+````
+
+### docker常用命令：
+
+1. ##### Redis:
+
+   ```java
+   docker run -d --name docker-redis -p 6379:6379 redis:6.2.1
+   ```
+
+2. Mysql:
+
+   ``````java
+   docker run -d --name docker-mysql -p 7777:3306 -e MYSQL_ROOT_PASSWORD=root mysql:8.0.23
+   ``````
+
+3. Zookeeper:
+
+   ``````java
+   docker run -d --name dokcer-zookeeper -p 2181:2181 zookeeper:3.7.0
+   ``````
+
+4. 进入容器：
+
+   ````java
+   docker exec -it [contierId]
+   ````
+
+
 
 
 
