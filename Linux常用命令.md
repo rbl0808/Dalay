@@ -118,10 +118,11 @@ redis-cli 该命令会连接本地的Redis服务
    ````java
    docker exec -it [contierId]
    ````
-
-
-
-
+   
+   打包:
+   
+   ``````
+   pythoninstaller -F timer.py
 
 
 
