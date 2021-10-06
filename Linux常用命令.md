@@ -11,18 +11,12 @@ touch:创建文件
 cp:复制文件
 rm:移除 -r 表示递归移除; -f 表示无需确认强制删除
 
->：覆盖输出，会覆盖掉原先的文件内容
->
->>：追加输出，不会覆盖原始文件内容，会在原始内容末尾继续添加
-
-### 进阶指令:
-
 df:查看磁盘空间 #df -h -h 表示以可读性较高的形式展示大小
 free:查看内存使用情况 #free -m 表示以mb为单位查看
 head:查看文件的前n行，默认10行
 tail:查看文件的末10行，默认10行
 less:查看文件，以较少的内容输出展示，按q键退出
-more:
+more:查看文件，以较多的内容输出展示，按q键退出
 wc:统计文件内容信息 #wc -lwc l:lines行数 w:words单词数 c:bytes字节数
 cal：显示日历
 clear/command + l:清除终端中已经存在的命令和结果
@@ -95,34 +89,39 @@ redis-cli 该命令会连接本地的Redis服务
 
 ### docker常用命令：
 
-1. ##### Redis:
+##### Redis:
 
-   ```java
-   docker run -d --name docker-redis -p 6379:6379 redis:6.2.1
-   ```
+```java
+docker run -d --name docker-redis -p 6379:6379 redis:6.2.1
+```
 
-2. Mysql:
+Mysql:
 
-   ``````java
-   docker run -d --name docker-mysql -p 7777:3306 -e MYSQL_ROOT_PASSWORD=root mysql:8.0.23
-   ``````
+``````java
+docker run -d --name docker-mysql -p 7777:3306 -e MYSQL_ROOT_PASSWORD=root mysql:8.0.23
+``````
 
-3. Zookeeper:
+Zookeeper:
 
-   ``````java
-   docker run -d --name dokcer-zookeeper -p 2181:2181 zookeeper:3.7.0
-   ``````
+``````java
+docker run -d --name dokcer-zookeeper -p 2181:2181 zookeeper:3.7.0
+``````
 
-4. 进入容器：
+进入容器：
 
-   ````java
-   docker exec -it [contierId]
-   ````
-   
-   打包:
-   
-   ``````
-   pythoninstaller -F timer.py
+````java
+docker exec -it [contierId]
+````
 
+python打包:
 
+``````
+pythoninstaller -F timer.py
+``````
+
+mycat:
+
+```
+docker run --privileged=true -p 8066:8066 -p 9066:9066 --name docker-mycat -v /Users/rbl/document/docker/mycat/conf:/usr/local/mycat/conf -v /Users/rbl/document/docker/mycat/logs:/usr/local/mycat/logs  -d mycat:1.6.7.6
+```
 
